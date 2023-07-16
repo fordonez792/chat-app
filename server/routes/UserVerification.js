@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const { sign, verify } = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 const { Users } = require("../models");
 const { authenticateToken } = require("../middleware/AuthMiddleware");
