@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const http = require("http");
 const cors = require("cors");
@@ -26,10 +27,13 @@ app.use("/group-chat-messages", groupChatMessagesRouter);
 // WebSocket
 const socketio = require("./socket/Socket");
 
-db.sequelize.sync().then(() => {
-  server.listen(process.env.PORT || 3001, () => {
-    console.log("server running");
-  });
+db.sequelize
+  .sync()
+  .then(() => {
+    server.listen(process.env.PORT || 3001, () => {
+      console.log("server running");
+    });
 
-  const io = socketio.getIO(server);
-});
+    const io = socketio.getIO(server);
+  })
+  .catch((error) => console.log(error));
