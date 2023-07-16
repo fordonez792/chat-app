@@ -27,7 +27,7 @@ app.use("/group-chat-messages", groupChatMessagesRouter);
 const socketio = require("./socket/Socket");
 
 db.sequelize.sync().then(() => {
-  server.listen("3001", () => {
+  server.listen(process.env.PORT || 3001, () => {
     console.log("server running");
   });
 
