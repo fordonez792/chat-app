@@ -47,6 +47,7 @@ export const AppProvider = ({ children }) => {
   }, []);
 
   const receiveFriendRequest = ({ from, to, content }) => {
+    if (!authState.status) return;
     if (authState.id.toString() !== to) return;
     console.log(content);
   };
