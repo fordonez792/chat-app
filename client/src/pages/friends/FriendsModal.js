@@ -37,7 +37,7 @@ const FriendsModal = ({ setIsOpen }) => {
   useEffect(() => {
     if (debouncedValue === "") return;
     axios
-      .get(`http://localhost:3001/users/find/?search=${debouncedValue}`, {
+      .get(`${process.env.REACT_APP_URL}users/find/?search=${debouncedValue}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then((res) => {
