@@ -12,7 +12,7 @@ const {
 const getIO = (server) => {
   const io = new Server(server, {
     cors: {
-      origin: "https://fernando-chatx.netlify.app/",
+      origin: "https://fernando-chatx.netlify.app",
       methods: ["GET", "POST"],
     },
   });
